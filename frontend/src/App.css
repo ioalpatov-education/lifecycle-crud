@@ -1,0 +1,91 @@
+* {
+  box-sizing: border-box;
+}
+
+.notes {
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  flex-direction: column;
+  height: 100vh;
+  margin: 3rem;
+  gap: 2rem;
+}
+
+.notes__header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.notes__list {
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.notes__form .form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.notes__form {
+  position: relative;
+}
+
+.notes__form .form-group .form-field {
+  width: 400px;
+  resize: none;
+}
+
+.notes__item {
+  position: relative;
+
+  width: 300px;
+  border: 1px solid #000000;
+}
+
+.item__text-wrapper {
+  max-height: 200px;
+  padding: 1rem;
+  overflow-y: scroll;
+}
+
+.item__text-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.notes__btn {
+  background-color: #ffffff;
+  border-radius: 50%;
+  padding: 5px;
+}
+
+.notes__btn--delete {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  z-index: 2;
+}
+
+.notes__btn--add {
+  position: absolute;
+  top: 110px;
+  right: 10px;
+}
+
+.error-text {
+  color: #c90000;
+}
+
+.autorenew-icon {
+  color: #00c44b;
+}
+
+.clear-icon {
+  color: #c90000;
+}
+
+.navigation-icon {
+  transform: rotate(90deg);
+}

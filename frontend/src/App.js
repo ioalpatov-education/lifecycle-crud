@@ -1,10 +1,8 @@
+import Notes from "./components/Notes";
 import "./App.css";
 
 function App() {
-  return (
-    <div className="app">
-    </div>
-  );
+  return <Notes />;
 }
 
 export default App;
