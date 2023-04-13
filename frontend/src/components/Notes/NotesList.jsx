@@ -1,16 +1,11 @@
 import NotesItem from "./NotesItem";
 
-const NotesList = () => {
-  return (
-    <div className="notes__list">
-      <NotesItem />
-      <NotesItem />
-
-      <NotesItem />
-
-      <NotesItem />
-    </div>
-  );
+const NotesList = ({ notes }) => {
+  console.log(notes);
+  const notesList = notes.map((note) => {
+    return <NotesItem key={note.id} note={note} />;
+  });
+  return <div className="notes__list">{notesList}</div>;
 };
 
 export default NotesList;
