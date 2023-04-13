@@ -13,10 +13,10 @@ const NotesForm = ({ onAddNote }) => {
     content: "",
   };
 
-  const addNote = (values, actions) => {
+  const addNote = async (values, actions) => {
     actions.resetForm();
 
-    onAddNote({
+    await onAddNote({
       id: nanoid(),
       content: values.content,
     });

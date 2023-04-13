@@ -23,7 +23,7 @@ router.post("/notes", async (ctx, next) => {
 });
 
 router.delete("/notes/:id", async (ctx, next) => {
-  const noteId = Number(ctx.params.id);
+  const noteId = ctx.params.id;
   const index = notes.findIndex((o) => o.id === noteId);
   if (index !== -1) {
     notes.splice(index, 1);

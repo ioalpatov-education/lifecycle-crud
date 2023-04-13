@@ -18,13 +18,19 @@ const Notes = () => {
     }
   };
 
-  const handleUpdate = async () => {
-    await updateNotesList();
-  };
-
   const addNote = async (noteToAdd) => {
     try {
       await axios.post(`${process.env.REACT_APP_API_URI}/notes`, noteToAdd);
+    } catch (err) {
+      throw new Error(err);
+    } finally {
+      await updateNotesList();
+    }
+  };
+
+  const deleteNote = async (noteId) => {
+    try {
+      await axios.delete(`${process.env.REACT_APP_API_URI}/notes/${noteId}`);
     } catch (err) {
       throw new Error(err);
     } finally {
@@ -42,12 +48,12 @@ const Notes = () => {
     <div className="notes">
       <header className="notes__header">
         <h1>Notes</h1>
-        <button className="notes__btn" onClick={handleUpdate}>
+        <button className="notes__btn" onClick={updateNotesList}>
           <Autorenew className="autorenew-icon" />
         </button>
       </header>
 
-      <NotesList notes={notes} />
+      <NotesList notes={notes} onDeleteNote={deleteNote} />
       <NotesForm onAddNote={addNote} />
     </div>
   );
