@@ -2,18 +2,24 @@ import { Navigation } from "@mui/icons-material";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { nanoid } from "nanoid";
+import PropTypes from "prop-types";
 
 const notesFormSchema = Yup.object({
   content: Yup.string().required("Обязательное поле"),
 });
 
-const NotesForm = () => {
+const NotesForm = ({ onAddNote }) => {
   const initialValues = {
     content: "",
   };
 
   const addNote = (values, actions) => {
     actions.resetForm();
+
+    onAddNote({
+      id: nanoid(),
+      content: values.content,
+    });
   };
 
   return (
@@ -42,6 +48,10 @@ const NotesForm = () => {
       </Form>
     </Formik>
   );
+};
+
+NotesForm.propTypes = {
+  onAddNote: PropTypes.func.isRequired,
 };
 
 export default NotesForm;
